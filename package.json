@@ -15,7 +15,7 @@
 		"deploy-local-motiftest": "graph deploy motif-foundation/motif-space-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8026",
 		"deploy-local-polygon": "graph deploy motif-foundation/motif-space-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8026",
 		"deploy-local-bsc": "graph deploy motif-foundation/motif-space-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8126",
-		"deploy-local-mainnet": "graph deploy motif-foundation/motif-space-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8226",
+		"deploy-local-mainnet": "graph deploy motif-foundation/motif-space-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8226"
 
 
   },
