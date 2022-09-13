@@ -1,0 +1,115 @@
+specVersion: 0.0.3
+description: Motif Space Subgraph
+repository: https://github.com/motif-foundation/motif-space-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Space
+    network: mainnet
+    source:
+      address: "0xab920372BC92dFBE757573546CE869170e85a4DD"
+      abi: Space
+      startBlock: 15525907
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Space
+      abis:
+        - name: Space
+          file: ./abis/Space.json
+        - name: SpaceExchange
+          file: ./abis/SpaceExchange.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: TokenURIUpdated(indexed uint256,address,string)
+          handler: handleTokenURIUpdated
+        - event: TokenMetadataURIUpdated(indexed uint256,address,string)
+          handler: handleTokenMetadataURIUpdated
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+      file: ./src/space.ts
+  - kind: ethereum/contract
+    name: SpaceExchange
+    network: mainnet
+    source:
+      address: "0xd49938d1c763D61c328dd175768Fcd0255c9D249"
+      abi: SpaceExchange
+      startBlock: 15525907
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Ask
+        - Bid
+      abis:
+        - name: SpaceExchange
+          file: ./abis/SpaceExchange.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: ERC20SymbolBytes
+          file: ./abis/ERC20SymbolBytes.json
+        - name: ERC20NameBytes
+          file: ./abis/ERC20NameBytes.json
+      eventHandlers:
+        - event: BidShareUpdated(indexed uint256,((uint256),(uint256),(uint256)))
+          handler: handleBidShareUpdated
+        - event: AskCreated(indexed uint256,(uint256,address))
+          handler: handleAskCreated
+        - event: AskRemoved(indexed uint256,(uint256,address))
+          handler: handleAskRemoved
+        - event: BidCreated(indexed uint256,(uint256,address,address,address,(uint256)))
+          handler: handleBidCreated
+        - event: BidRemoved(indexed uint256,(uint256,address,address,address,(uint256)))
+          handler: handleBidRemoved
+        - event: BidFinalized(indexed uint256,(uint256,address,address,address,(uint256)))
+          handler: handleBidFinalized
+      file: ./src/spaceExchange.ts
+  - kind: ethereum/contract
+    name: SpaceListing
+    network: mainnet
+    source:
+      address: "0xBE3828F83dF612EC9F5feD88C3B52AbFC68fD2d1"
+      abi: SpaceListing
+      startBlock: 15525907
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ReserveListing
+        - ReserveListingBid
+        - InactiveReserveListingBid
+      abis:
+        - name: SpaceListing
+          file: ./abis/SpaceListing.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: ERC20SymbolBytes
+          file: ./abis/ERC20SymbolBytes.json
+        - name: ERC20NameBytes
+          file: ./abis/ERC20NameBytes.json
+      eventHandlers:
+        - event: ListingCreated(indexed uint256,indexed uint256,indexed address,uint256,uint256,uint256,uint8,address,address,uint8,address) 
+          handler: handleReserveListingCreated
+        - event: ListingApprovalUpdated(indexed uint256,indexed uint256,indexed address,bool)
+          handler: handleReserveListingApprovalUpdate
+        - event: ListingDropApprovalUpdated(indexed uint256,indexed uint256,indexed address,bool,uint256)
+          handler: handleReserveListingDropApprovalUpdate 
+        - event: ListingListPriceUpdated(indexed uint256,indexed uint256,indexed address,uint256)
+          handler: handleReserveListingListPriceUpdate
+        - event: ListingBid(indexed uint256,indexed uint256,indexed address,address,uint256,bool,bool)
+          handler: handleReserveListingBid
+        - event: ListingDurationExtended(indexed uint256,indexed uint256,indexed address,uint256)
+          handler: handleReserveListingDurationExtended
+        - event: ListingEnded(indexed uint256,indexed uint256,indexed address,address,address,address,uint256,uint256,address)
+          handler: handleReserveListingEnded
+        - event: ListingCanceled(indexed uint256,indexed uint256,indexed address,address)
+          handler: handleReserveListingCanceled
+      file: ./src/spaceListing.ts
