@@ -7,13 +7,17 @@
 		"create-local-motiftest": "graph create motif-foundation/motif-space-subgraph --node http://127.0.0.1:8026", 
 		"create-local-polygon": "graph create motif-foundation/motif-space-subgraph --node http://127.0.0.1:8026", 
 		"create-local-bsc": "graph create motif-foundation/motif-space-subgraph --node http://127.0.0.1:8126", 
+		"create-local-mainnet": "graph create motif-foundation/motif-space-subgraph --node http://127.0.0.1:8226", 
 		"codegen": "graph codegen --output-dir types",
 		"build": "graph build",
 		"deploy": "graph deploy motif-foundation/motif-space-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
 		"deploy-local": "graph deploy motif-foundation/motif-space-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8020",  
 		"deploy-local-motiftest": "graph deploy motif-foundation/motif-space-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8026",
 		"deploy-local-polygon": "graph deploy motif-foundation/motif-space-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8026",
-		"deploy-local-bsc": "graph deploy motif-foundation/motif-space-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8126"
+		"deploy-local-bsc": "graph deploy motif-foundation/motif-space-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8126",
+		"deploy-local-mainnet": "graph deploy motif-foundation/motif-space-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8226",
+
+
   },
   "devDependencies": {
     "@ethersproject/providers": "^5.0.16", 
