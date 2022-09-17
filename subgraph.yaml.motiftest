@@ -75,7 +75,7 @@ dataSources:
     name: SpaceListing
     network: motiftest
     source:
-      address: "0x14437dA29137303b3aC569679aF2D6E79d6307cD"
+      address: "0xf666d21714030BDe8afDF082C5bF91eB32f0149D"
       abi: SpaceListing
       startBlock: 7742
     mapping:
