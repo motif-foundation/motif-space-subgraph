@@ -502,7 +502,7 @@ export function createReserveListing(
     reserveListing.tokenContract = tokenContract 
     reserveListing.token = tokenContract.concat('-').concat(tokenId.toString())
     reserveListing.space = space ? space.id : null
-    reserveListing.approved = intermediary.id == "0xae4e111b272961b41cf9e14541d54ee11a5371ba" ? false : true
+    reserveListing.approved = true
     reserveListing.startsAt = startsAt
     reserveListing.duration = duration
     reserveListing.firstBidTime = BigInt.fromI32(0)
@@ -513,7 +513,7 @@ export function createReserveListing(
     reserveListing.tokenOwner = tokenOwner.id
     reserveListing.intermediary = intermediary.id
     reserveListing.listCurrency = listCurrency.id
-    reserveListing.status =intermediary.id == "0xae4e111b272961b41cf9e14541d54ee11a5371ba" ? 'Pending' : "Active" 
+    reserveListing.status = "Active" 
     reserveListing.createdAtTimestamp = createdAtTimestamp
     reserveListing.createdAtBlockNumber = createdAtBlockNumber
 
