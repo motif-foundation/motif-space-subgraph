@@ -19,13 +19,11 @@
 
 
   },
-  "devDependencies": {
-    "@ethersproject/providers": "^5.0.16", 
-    "@graphprotocol/graph-cli": "^0.18.0",
-    "@graphprotocol/graph-ts": "^0.18.0",
+ "devDependencies": {
+    "@ethersproject/providers": "^5.0.16",
     "@types/jest": "^26.0.15",
     "@types/sjcl": "^1.0.29",
-    "axios": "^0.21.0",
+    "axios": "^0.25.0",
     "axios-retry": "^3.1.9",
     "dotenv": "^8.2.0",
     "ethers": "^5.0",
@@ -35,11 +33,14 @@
     "random-words": "^1.1.1",
     "sjcl": "^1.0.8",
     "system-commands": "^1.1.7",
-    "typescript": "^4.1.2"
+    "typescript": "^4.5.4"
   },
   "dependencies": {
+    "@graphprotocol/graph-cli": "^0.18.0",
+    "@graphprotocol/graph-ts": "^0.18.0",
     "@motif-foundation/listing": "^1.0.49",
     "@motif-foundation/asset": "^1.0.43",
     "@motif-foundation/sdk": "^1.0.88"
-  } 
+
+  }
 }
